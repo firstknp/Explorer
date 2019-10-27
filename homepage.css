@@ -9,13 +9,16 @@ body, html {
   
   .bg-img {
     /* The image used */
-    background-image: url("logo.png");
-  
-    min-height: 380px;
+    background-image: url(logo.png);
+    width: 250px;
+    height: 350px;
+    margin-left: 200px;
+    margin-top: 300px;
+    /* position: absolute; */
   
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat bottom right;
     background-size: cover;
     position: relative;
   }
@@ -24,7 +27,7 @@ body, html {
   .container {
     position: absolute;
     right: 0;
-    margin: 20px;
+    margin-right: 250px;
     max-width: 300px;
     padding: 16px;
     background-color: white;
