@@ -12,8 +12,8 @@ body, html {
     background-image: url(logo.png);
     width: 250px;
     height: 350px;
-    margin-left: 200px;
-    margin-top: 300px;
+    margin-left: 300px;
+    margin-top: 250px;
     /* position: absolute; */
   
     /* Center and scale the image nicely */
@@ -27,7 +27,8 @@ body, html {
   .container {
     position: absolute;
     right: 0;
-    margin-right: 250px;
+    margin-right: 420px;
+    margin-top: 230px;
     max-width: 300px;
     padding: 16px;
     background-color: white;
