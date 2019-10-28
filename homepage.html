@@ -1,19 +1,43 @@
 <html>
 <head>
+<link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.css"></script>
+<script src="js/jquery.js"></script>
+</head>
+
+<head>
 <link rel="stylesheet" href="homepage.css"/>
-=======
+
 <link href="homepage.css" rel="stylesheet">
 <title>Explorer| the application for evaluating</title>
 <body>
+<div class="login">
   <form action="/action_page.php" class="container">
     <h1>Login</h1>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
-    <button type="submit" class="btn">Login</button>
+
+    <div class = "regis">
+        <p><a href="https://www.w3schools.com/html/">Register</a></p>
+    </div>
+
+    <div class="btn-group">
+        <div class= "log-btn">
+            <button>Login</button>
+        </div>
+
+    </div>
   </form>
-<div class="bg-img"></div>
+</div>
+
+<div class="bg-img">
+  <img src="logo.png"  width="500"  height="500">
+</div>
+
 </body>
 </head>
 </html>
