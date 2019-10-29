@@ -55,3 +55,48 @@ body, html {
   .log-btn button:hover {
     opacity: 1;
   }
+
+  .fb-btn button{
+    background-color: #3B5998;
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .fb-btn button:hover {
+    opacity: 1;
+  }
+
+  .tw-btn button{
+    background-color: #55ACEE;
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .tw-btn button:hover {
+    opacity: 1;
+  }
+
+  .gg-btn button{
+    background-color: #dd4b39;
+    color: white;
+    padding: 10px 80px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  .gg-btn button:hover {
+    opacity: 1;
+  }
