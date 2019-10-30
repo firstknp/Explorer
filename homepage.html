@@ -8,39 +8,66 @@
 </head>
 
 <head>
-<link rel="stylesheet" href="homepage.css"/>
 
-<link href="homepage.css" rel="stylesheet">
+<link rel="stylesheet" href="homepage.css"/>
+<link rel="stylesheet" href="registerpage.css"/>
+<script src="registerpage.js"></script>
+
+
 <title>Explorer| the application for evaluating</title>
 <body>
-<div class="login">
-  <form action="/action_page.php" class="container">
-    <h1>Login</h1>
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+  <div class = "formpopup"id = "myForm">
+    <div class="form-container">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h1> Sign up</h1>
+      <label for="username"><b>Username</b></label><br>
+      <input type="text" name="username" required><br>
 
-    <div class = "regis">
-        <p style="line-height: 50%;"><a href="https://www.w3schools.com/html/">Register</a></p>
+      <label for="fristname"><b>Frist Name</b></label><br>
+      <input type="text" name="fristname" required><br>
+
+      <label for="lastname"><b>Last Name</b></label><br>
+      <input type="text" name="lastname" required><br>
+
+      <label for="email"><b>E-mail Address</b></label><br>
+      <input type="text" name="email" required><br>
+
+      <label for="psw"><b>Password</b></label><br>
+      <input type="password" name="psw" required><br>
+
+      <label for="conpsw"><b>Confirm Password</b></label><br>
+      <input type="password" name="conpsw" required><br>
+      <!-- <div class="regi"> -->
+      <div class="regis-btn">
+        <button type="button" style="margin-top: 30px;">Register?</button>
+      </div>
     </div>
-
-    <!-- <div class="btn-group"> -->
-        <div class= "log-btn">
-            <button>Login</button>
-        </div>
-        <div class= "fb-btn">
-            <button>Login with Facebook</button>
-        </div>
-        <div class= "tw-btn">
-            <button>Login with Twitter</button>
-        </div>
-        <div class= "gg-btn">
-            <button>Login with Google+</button>
-        </div>
-    <!-- </div> -->
-  </form>
-</div>
+  </div>
+  <div class="login">
+    <form action="/action_page.php" class="container">
+      <h1>Login</h1>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+  
+      <div class = "regis">
+          <p style="line-height: 50%;" onclick="openForm()"><a>Register</a></p>
+      </div>
+      <div class= "log-btn">
+          <button>Login</button>
+      </div>
+      <div class= "fb-btn">
+          <button style="margin-top: 10px;">Login with Facebook</button>
+      </div>
+      <div class= "tw-btn">
+          <button style="margin-top: 10px;">Login with Twitter</button>
+      </div>
+      <div class= "gg-btn">
+          <button style="margin-top: 10px;">Login with Google+</button>
+      </div>
+    </form>
+  </div>
 
 <div class="bg-img">
   <img src="logo.png"  width="500"  height="500">
@@ -49,6 +76,3 @@
 </body>
 </head>
 </html>
-
-
-
