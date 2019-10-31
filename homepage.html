@@ -1,47 +1,20 @@
 <html>
 <head>
 <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
-
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.css"></script>
 <script src="js/jquery.js"></script>
 </head>
-
 <head>
-
 <link rel="stylesheet" href="homepage.css"/>
 <link rel="stylesheet" href="registerpage.css"/>
 <script src="registerpage.js"></script>
-
+<meta charset="utf-8">
 
 <title>Explorer| the application for evaluating</title>
 <body>
-  <div class = "formpopup"id = "myForm">
-    <div class="form-container">
-      <span class="close" onclick="closeForm()">&times;</span>
-      <h1> Sign up</h1>
-      <label for="username"><b>Username</b></label><br>
-      <input type="text" name="username" required><br>
-
-      <label for="firstname"><b>First Name</b></label><br>
-      <input type="text" name="firstname" required><br>
-
-      <label for="lastname"><b>Last Name</b></label><br>
-      <input type="text" name="lastname" required><br>
-
-      <label for="email"><b>E-mail Address</b></label><br>
-      <input type="text" name="email" required><br>
-
-      <label for="psw"><b>Password</b></label><br>
-      <input type="password" name="psw" required><br>
-
-      <label for="conpsw"><b>Confirm Password</b></label><br>
-      <input type="password" name="conpsw" required><br>
-    
-      <div class="regis-btn">
-        <button type="button" style="margin-top: 30px;">Register</button>
-      </div>
-    </div>
+  <div class="bg-img">
+    <img src="logo.png"  width="500"  height="500">
   </div>
   <div class="login">
     <form action="/action_page.php" class="container">
@@ -68,11 +41,33 @@
       </div>
     </form>
   </div>
-
-<div class="bg-img">
-  <img src="logo.png"  width="500"  height="500">
-</div>
-
+  <div class = "formpopup"id = "myForm">
+      <div class="form-container">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h1 style="font-size: 32; margin-top: 20px;"> Create your account</h1>
+        <label for="username"><b></b></label><br>
+        <input type="text" placeholder="Username" name="username" required><br>
+  
+        <label for="firstname"><b></b></label><br>
+        <input type="text" placeholder="Firstname" name="firstname" required><br>
+  
+        <label for="lastname"><b></b></label><br>
+        <input type="text" placeholder="Lastname" name="lastname" required><br>
+  
+        <label for="email"><b></b></label><br>
+        <input type="text" placeholder="Email" name="email" required><br>
+  
+        <label for="psw"><b></b></label><br>
+        <input type="password" placeholder="Password" name="psw" required><br>
+  
+        <label for="conpsw"><b></b></label><br>
+        <input type="password" placeholder="Confirm Password " name="conpsw" required><br>
+      
+        <div class="regis-btn">
+          <button type="button" style="margin-top: 30px;">Register</button>
+        </div>
+      </div>
+    </div>
 </body>
 </head>
 </html>
