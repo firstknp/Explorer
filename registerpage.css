@@ -1,7 +1,7 @@
 body, html {
-    overflow: hidden;
-    height: 100%;
-    font-family: "Times New Roman", Times, serif;
+  overflow: hidden;
+  height: 100%;
+  font-family: "Times New Roman", Times, serif;
   }
   
   * {
@@ -25,7 +25,7 @@ body, html {
       padding: 5px;
       background-color: white;
       text-align: center;
-      line-height: 40px;
+      line-height: 35px;
     }
 
     .form-container input[type=text], .form-container input[type=password] {
@@ -36,6 +36,7 @@ body, html {
       margin: auto;
       border: none;
       background: #f1f1f1;
+      font-size: 18;
     }
 
     .regis-btn button{
