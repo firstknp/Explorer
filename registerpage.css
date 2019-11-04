@@ -19,9 +19,9 @@ body, html {
     }
 
     .form-container {
-      width: 50%;
-      height: 640px;
-      margin: 50px auto;
+      width: 30%;
+      height: 60%;
+      margin: 30px auto;
       padding: 5px;
       background-color: white;
       text-align: center;
@@ -37,6 +37,15 @@ body, html {
       border: none;
       background: #f1f1f1;
       font-size: 18;
+    }
+
+    .icon {
+      padding: 10px;
+      background: dodgerblue;
+      color: white;
+      height: 40px;
+      width: 50px;
+      text-align: center;
     }
 
     .regis-btn button{
