@@ -20,7 +20,7 @@ body, html {
 
     .form-container {
       width: 30%;
-      height: 60%;
+      height: 500px;
       margin: 30px auto;
       padding: 5px;
       background-color: white;
@@ -37,15 +37,16 @@ body, html {
       border: none;
       background: #f1f1f1;
       font-size: 18;
+      
     }
 
     .icon {
       padding: 10px;
-      background: dodgerblue;
+      background: black;
       color: white;
       height: 40px;
       width: 50px;
-      text-align: center;
+      text-align: center;      
     }
 
     .regis-btn button{
