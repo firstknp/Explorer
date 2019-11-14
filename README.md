@@ -5,6 +5,6 @@ This application provides a customizable web-based evaluation form with data sum
 ### Members
 | Name        | ID          | Github  |
 | ------------- |:-------------:| -----:|
-| Kannipa Prayoonpruk      | 6110545431 | [https://github.com/firstknp] |
-| Tanapol Buangam      | 6110545511      |   [https://github.com/KOngTNP] |
-| Thitaseth Turongpun | 6110545996      |    [https://github.com/bbestthi] |
+| Kannipa Prayoonpruk      | 6110545431 | [firstknp](https://github.com/firstknp) |
+| Tanapol Buangam      | 6110545511      | [KOngTNP](https://github.com/KOngTNP) |
+| Thitaseth Turongpun | 6110545996      | [bbestthi](https://github.com/bbestthi) |
