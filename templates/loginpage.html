@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
-
+{% load staticfiles %}
 
 <body>
     {% block content %}
@@ -9,7 +8,7 @@
   </div>
 
   <div class="login">
-    <form method="post" action="/login/home" class="container">
+    <form method="post" action="{% url 'login:loginpage' %}" class="container">
       <h1>Login</h1>
       {% csrf_token %}
       <label for="email"><b>Email</b></label>
@@ -17,7 +16,7 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" name="password" placeholder="Enter Password" name="psw" required>
       <div class = "regis">
-        <p style="line-height: 50%;" onclick="openForm()"><a>Register?</a></p>
+          <p style="line-height: 50%;" onclick="openForm()"><a>Register?</a></p>
       </div>
       <div class= "log-btn">
         <button>Login</button>
@@ -25,7 +24,7 @@
     </form>
   </div>
 
-  <div class = "formpopup"id = "myForm">
+  <div class = "formpopup" id = "myForm">
     <div class="form-container">
       <span class="close" onclick="closeForm()">&times;</span>
       <h1 style="font-size: 32; margin-top: 20px;"> Create your account</h1>
@@ -48,5 +47,5 @@
   </div>
   {% endblock content%}
 </body>
-
+</head>
 
