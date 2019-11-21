@@ -14,28 +14,70 @@
     <img src="{% static 'logo.png' %}" width="500"  height="500">
   </div>
   <div class="login">
-    <form action="/action_page.php" class="container">
+    <form class="container">
       <h1>Login</h1>
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" name="email" >
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="psw" >
   
       <div class = "regis">
           <p style="line-height: 50%;" onclick="openForm()"><a>Register?</a></p>
       </div>
       <div class= "log-btn">
           <button>Login</button>
+          <!-- <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }} -->
       </div>
-      <div class= "fb-btn">
-          <button style="margin-top: 10px;">Login with Facebook</button>
-      </div>
-      <div class= "tw-btn">
-          <button style="margin-top: 10px;">Login with Twitter</button>
-      </div>
-      <div class= "gg-btn">
-          <button style="margin-top: 10px;">Login with Google+</button>
-      </div>
+    
+  <div class= "fb-btn">
+    <button style="margin-top: 10px;" >Login with Facebook</button>
+    <!-- <script>
+        $('#facebook-button').on('click', function() {
+          // Initialize with your OAuth.io app public key
+          OAuth.initialize('2693032424069178');
+          // Use popup for oauth
+          OAuth.popup('facebook').then(facebook => {
+            console.log('facebook:',facebook);
+            // Prompts 'welcome' message with User's email on successful login
+            // #me() is a convenient method to retrieve user data without requiring you
+            // to know which OAuth provider url to call
+            facebook.me().then(data => {
+              console.log('me data:', data);
+              alert('Facebook says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
+            })
+            // Retrieves user data from OAuth provider by using #get() and
+            // OAuth provider url
+            facebook.get('/v2.5/me?fields=name,first_name,last_name,email,gender,location,locale,work,languages,birthday,relationship_status,hometown,picture').then(data => {
+              console.log('self data:', data);
+            })
+          });
+        })
+      </script> -->
+  </div>
+
+  <div class= "tw-btn">
+    <button style="margin-top: 10px;" >Login with Twitter</button>
+  </div>
+  <div class= "gh-btn">
+    <button style="margin-top: 10px;" >Login with Github</button>
+  </div>
+  <div class= "gg-btn" data-onsuccess="onSignIn">
+    <button style="margin-top: 10px;" >Login with Google+</button>
+    <!-- <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="763114358978-ff6qtok73qoooi9sl0f92jkg23uauhmt">
+    <script src="https://apis.google.com/js/platform.js?onload=bindGpLoginBtn" async defer></script>
+    <script>
+    function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); 
+    }
+    </script>  -->
+  </div>
     </form>
   </div>
   <div class = "formpopup"id = "myForm">
@@ -45,13 +87,7 @@
         <label for="username"><b></b></label><br>
         <i class="fa fa-user icon"></i>
         <input type="text" placeholder="Username" name="username" required><br>
-  
-        <!-- <label for="firstname"><b></b></label><br>
-        <input type="text" placeholder="Firstname" name="firstname" required><br>
-  
-        <label for="lastname"><b></b></label><br>
-        <input type="text" placeholder="Lastname" name="lastname" required><br> -->
-  
+
         <label for="email"><b></b></label><br>
         <i class="fa fa-envelope icon"></i>
         <input type="text" placeholder="Email" name="email" required><br>
@@ -64,9 +100,9 @@
         <i class="fa fa-key icon"></i>
         <input type="password" placeholder="Confirm Password " name="conpsw" required><br>
     
-        <div class="regis-btn">
-          <button type="button" style="margin-top: 30px;">Register</button>
-        </div>
+      <div class="regis-btn">
+        <button type="button" style="margin-top: 30px;">Register</button>
+      </div>
       </div>
     </div>
 </body>
