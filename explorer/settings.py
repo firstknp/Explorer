@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'explorer.urls'
@@ -63,12 +65,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', 
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'explorer.wsgi.application'
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 
 # Database
@@ -125,5 +133,14 @@ STATICFILES_DIRS = (
 
 
 LOGIN_URL = '/login/user_login/'
+LOGIN_REDIRECT_URL = '//'
 
+# Google+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '763114358978-ff6qtok73qoooi9sl0f92jkg23uauhmt'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'vyRsNE5C1Sku4jcyYgi6X5rZ'
+
+
+TEMPLATE_DIRS = (
+    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
+)
 APPEND_SLASH=False
