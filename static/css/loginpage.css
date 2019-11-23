@@ -67,9 +67,12 @@ body, html {
       padding: auto;
       border: none;
       cursor: pointer;
-      width: 300px;
+      width: 270px;
       opacity: 0.9;
       border-radius: 8px;
+      margin-left: 735px;
+      margin-top: 530px;
+      z-index: 2;
       
     }
 
