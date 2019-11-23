@@ -1,7 +1,6 @@
 function openForm() {
-  var popup = document.getElementById("myForm");
-  popup.classList.toggle("show");
-}
+  document.getElementById("myForm").style.display = "block";
+  }
   
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
