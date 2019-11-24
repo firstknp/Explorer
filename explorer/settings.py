@@ -136,14 +136,12 @@ TEMPLATE_DIRS = (
 
 
 LOGIN_URL = '/login/user_login/'
-LOGIN_REDIRECT_URL = '//'
+LOGIN_REDIRECT_URL = '/home'
 
 # Google+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '763114358978-ff6qtok73qoooi9sl0f92jkg23uauhmt'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'vyRsNE5C1Sku4jcyYgi6X5rZ'
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 
-TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
-)
 APPEND_SLASH=False
