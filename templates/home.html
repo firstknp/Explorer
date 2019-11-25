@@ -1,1 +1,13 @@
-hello
+{% extends 'base.html' %}
+{% load staticfiles %}
+<body>
+    {% block content %}
+    <div class="icon-bar">
+        <a class="active" href="#"><i class="fa fa-home"><br>Home</i></a>
+        <a href="#"><i class="fas fa-folder-plus"><br>Create</i></a> 
+        <a href="#"><i class="fas fa-trash-alt"><br>Delete</i></a> 
+        <a href="#"><i class="fas fa-sign-out-alt"><br>Log out</i></a> 
+        
+    </div>
+    {% endblock content %}
+</body>

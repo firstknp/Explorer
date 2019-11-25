@@ -1,0 +1,32 @@
+body, html {
+    overflow: hidden;
+    height: 100%;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+    .icon-bar {
+    width: 100px; 
+    background-color: #555; 
+    overflow: auto;
+    text-align: center;
+    color: white;
+  }
+  
+    .icon-bar a {
+    display: block; 
+    padding: 18px; 
+    transition: all 0.3s ease; 
+    color: white;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
+    .icon-bar a:hover {
+    background-color: #E8E3E3; 
+  }
+  
+    .active {
+    background-color: #4CAF50; 
+  }
+
+    
