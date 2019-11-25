@@ -21,33 +21,52 @@
       <div class= "log-btn">
         <button>Login</button>
       </div>
+      <div class= "error-message" style="margin-top: 80px;">
+          {{form.non_field_errors}}
+          <p>{{form.username.errors}}</p>
+          <p>{{form.email.errors}}</p>
+          <p>{{form.password2.errors}}</p>
+        </div>
     </form>
   </div>
   <div class= "gg-btn">
-    <button onclick="window.location.href='/social-auth/login/google-oauth2/'">Login with Google+</button></br>
+    <button onclick="window.location.href='/social-auth/login/google-oauth2/'">Login with Google+</button>
   </div>
+  
 
   <div class = "formpopup" id = "myForm">
-    <div class="form-container">
-      <span class="close" onclick="closeForm()">&times;</span>
-      <h1 style="font-size: 32; margin-top: 20px;"> Create your account</h1>
-      <label for="username"><b></b></label><br>
-      <i class="fa fa-user icon"></i>
-      <input type="text" placeholder="Username" name="username" required><br>
-      <label for="email"><b></b></label><br>
-      <i class="fa fa-envelope icon"></i>
-      <input type="text" placeholder="Email" name="email" required><br>
-      <label for="psw"><b></b></label><br>
-      <i class="fa fa-key icon"></i>
-      <input type="password" placeholder="Password" name="psw" required><br>
-      <label for="conpsw"><b></b></label><br>
-      <i class="fa fa-key icon"></i>
-      <input type="password" placeholder="Confirm Password " name="conpsw" required><br>
-      <div class="regis-btn">
-        <button type="button" style="margin-top: 30px;">Register</button>
-      </div>
+      <form action='{% url "login:register" %}' method="post">
+        
+        {% csrf_token %} 
+        <div class="form-container" style="height: 400px;">
+
+          <span class="close" onclick="closeForm()">&times;</span>
+          <h1 style="font-size: 32; margin-top: 20px;"> Create your account</h1>
+          <label for="username"><b></b></label><br>
+          <i class="fa fa-user icon"></i>
+          <input type="text" placeholder="Username" name="username" required><br>
+          
+  
+          <label for="email"><b></b></label><br>
+          <i class="fa fa-envelope icon"></i>
+          <input type="text" placeholder="Email" name="email" required><br>
+          
+         
+          <label for="psw"><b></b></label><br>
+          <i class="fa fa-key icon"></i>
+          <input type="password" placeholder="Password" name="password1" required><br>
+          
+          <label for="conpsw"><b></b></label><br>
+          <i class="fa fa-key icon"></i>
+          <input type="password" placeholder="Confirm Password " name="password2" required><br>
+          
+       
+          <div class="regis-btn">
+            <button type="submit"  value="Register" style="margin-top: 30px;">Register</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </div>
   {% endblock content%}
 </body>
 </head>
