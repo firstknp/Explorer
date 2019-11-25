@@ -20,7 +20,6 @@ body, html {
 
     .form-container {
       width: 30%;
-      height: 500px;
       margin: 30px auto;
       padding: 5px;
       background-color: white;
@@ -31,7 +30,7 @@ body, html {
     .form-container input[type=text], .form-container input[type=password] {
       width: 60%;
       height: 40px;
-      padding: 15px;
+      padding: 25px;
       font-size: 14px;
       margin: auto;
       border: none;
