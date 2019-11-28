@@ -10,6 +10,6 @@ This application provides a customizable web-based evaluation form with data sum
 | Thitaseth Turongpun | 6110545996      | [bbestthi](https://github.com/bbestthi) |
 ### Links
 * [Project Proposal](https://docs.google.com/document/d/1qdqPf4JQ3rBSxZci-LwQIHDVbLrIxI9a3JVkKBKnihQ/edit#heading=h.vkq3s4w01uy9)
-* [Iteration plans](https://docs.google.com/document/d/1qdqPf4JQ3rBSxZci-LwQIHDVbLrIxI9a3JVkKBKnihQ/edit#heading=h.syev61d2bv7y)
+* [Iteration plans](https://github.com/firstknp/Explorer.wiki.git)
 * [Task Board](https://trello.com/b/XzetFbVP/explorer)
 * [Code Review](https://docs.google.com/document/d/1y8l0CxvDkbFcNPTH0hb2dg3-fiprbkQXQ1y-Z4Msx_c/edit?usp=sharing)
