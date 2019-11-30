@@ -2,12 +2,16 @@
 {% load staticfiles %}
 <body>
     {% block content %}
-    <div class="icon-bar">
-        <a class="active" href="#"><i class="fa fa-home"><br>Home</i></a>
-        <a href="#"><i class="fas fa-folder-plus"><br>Create</i></a> 
-        <a href="#"><i class="fas fa-trash-alt"><br>Delete</i></a> 
-        <a href="#"><i class="fas fa-sign-out-alt"><br>Log out</i></a> 
-        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <span style="font-size:28px;cursor:pointer" onclick="openNav()">&#9776; menu</span>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href="#"><i class="fa fa-home"><br>Home</i></a>
+            <a href="#"><i class="fas fa-folder-plus"><br>Create</i></a> 
+            <a href="#"><i class="fas fa-trash-alt"><br>Delete</i></a> 
+            <a href="#"><i class="fas fa-sign-out-alt"><br>Log out</i></a> 
+        </div>
     </div>
     {% endblock content %}
 </body>
