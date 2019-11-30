@@ -10,6 +10,12 @@ from django.contrib.auth.decorators import login_required
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
+class ProfileView(TemplateView):
+    template_name = 'profile.html'
+
+class PollsView(TemplateView):
+    template_name = 'polls.html'
+
 def index(request):
     return render(request, 'login/index.html')
 
@@ -23,7 +29,8 @@ def special(request):
 def user_logout(request):
     logout(request)
     # return HttpResponseRedirect(reverse('index'))
-    return redirect(reverse('login:user_login'))
+    # return redirect('loginpage')
+    return render(request, "loginpage.html", {})
 
 
 def user_login(request):
