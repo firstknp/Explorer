@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),    
     path('', include('login.urls')),
     path('social-auth/', include('social_django.urls', namespace="social")),
+    path('', include('survey.urls')),
 ]
