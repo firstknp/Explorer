@@ -1,0 +1,107 @@
+{% load static %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">
+      Django Survey
+    </h1>
+
+    <div class="columns">
+      <div class="column is-offset-2 is-8">
+        <h2 class="subtitle">
+          Create Survey
+        </h2>
+
+        <form action="{% url 'survey_create' %}" id="survey-form" method="POST">
+          {% csrf_token %}
+          <div class="field">
+            <label for="title" class="label">
+              Title
+            </label>
+            <div class="control">
+              <input type="text" class="input" name="title" id="title">
+            </div>
+            <p class="help is-danger">{{ title_error }}</p>
+          </div>
+
+          <div class="field">
+            <label for="" class="label">Questions</label>
+            <div class="control">
+              <a @click.stop="addQuestion" class="button is-info is-small">
+                <span class="icon">
+                  <i class="fas fa-plus"></i>
+                </span>
+                <span>Add Question</span>
+              </a>
+            </div>
+            <p class="help is-danger">{{ questions_error }}</p>
+          </div>
+          <ol>
+            <li style="padding-bottom: 25px;" v-for="question in questions" :key="'question_' + question.id">
+              <div class="field is-grouped">
+                <label :for="'question_' + question.id" class="label">
+                </label>
+                <div class="control is-expanded">
+                  <input type="text" class="input" v-model="question.text">
+                </div>
+                <div class="control">
+                  <a @click.stop="removeQuestion(question)" class="button is-danger">
+                    <span class="icon is-small">
+                      <i class="fas fa-times"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <div style="margin-left: 30px;">
+                <div class="field">
+                  <label for="" class="label">Choices</label>
+                  <div class="control">
+                    <a @click.stop="addChoice(question)" class="button is-success is-small">
+                      <span class="icon is-small">
+                        <i class="fas fa-plus"></i>
+                      </span>
+                      <span>Add Choice</span>
+                    </a>
+                  </div>
+                </div>
+
+                <ol>
+                  <li v-for="choice in question.choices" :key="'choice_' + choice.id">
+                    <div class="field is-grouped">
+                      <label :for="'choice_' + choice.id" class="label">
+                      </label>
+                      <div class="control is-expanded">
+                        <input type="text" class="input" v-model="choice.text">
+                      </div>
+                      <div class="control">
+                        <a @click.stop="removeChoice(question, choice)" class="button is-danger">
+                          <span class="icon is-small">
+                            <i class="fas fa-times"></i>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+
+              </div>
+              <input v-if="validQuestion(question)" type="hidden" name="questions" :value="serializeQuestion(question)">
+            </li>
+          </ol>
+          <div class="field">
+            <div class="control">
+              <button class="button is-success">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script src="{% static 'js/create_survey.js'%}"></script>
+{% endblock %}
