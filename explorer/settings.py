@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'social_django',
-    'survey'
+    'survey',
+    'guardian',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,7 @@ WSGI_APPLICATION = 'explorer.wsgi.application'
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
 )
 
 
