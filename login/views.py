@@ -31,14 +31,7 @@ def special(request):
 @login_required
 def user_logout(request):
     logout(request)
-<<<<<<< HEAD
-    # return HttpResponseRedirect(reverse('index'))
-    # return redirect('loginpage')
-    return render(request, "loginpage.html", {})
-=======
     return redirect(reverse('login:user_login'))
->>>>>>> master
-
 
 def user_login(request):
     if request.method == 'POST':
