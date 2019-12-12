@@ -13,6 +13,10 @@ class Survey(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        permissions = (
+          ('view_results', 'View survey results'),
+        )
 
     def __str__(self):
         return f"Survey({self.id}): {self.title}"
@@ -46,3 +50,31 @@ class Choice(models.Model):
 
     def __str__(self):
         return f"Choice({self.id}): {self.text} - {self.question}"
+
+class SurveyAssignment(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    survey = models.ForeignKey(
+        Survey,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='survey_assignments'
+    )
+    assigned_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='assigned_surveys_to'
+    )
+    assigned_to = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='assigned_surveys'
+    )
+
+    def __str__(self):
+        return f"SurveyAssignment({self.id}): {self.survey}: {self.assigned_to.username}"
