@@ -25,6 +25,20 @@
             </div>
             <p class="help is-danger">{{ title_error }}</p>
           </div>
+          
+          <div class="field">
+            <label for="" class="label">Assignees</label>
+            <div class="control">
+              <div class="select is-multiple">
+                <select multiple size="4" name="assignees">
+                  {% for user in users %}
+                  <option value="{{ user.id }}">{{ user.username }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <p class="help is-danger">{{ assignee_error }}</p>
+            </div>
+          </div>
 
           <div class="field">
             <label for="" class="label">Questions</label>
@@ -103,5 +117,4 @@
 
 </section>
 
-<script src="{% static 'js/create_survey.js'%}"></script>
 {% endblock %}
