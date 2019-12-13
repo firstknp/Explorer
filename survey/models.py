@@ -78,3 +78,31 @@ class SurveyAssignment(models.Model):
 
     def __str__(self):
         return f"SurveyAssignment({self.id}): {self.survey}: {self.assigned_to.username}"
+
+
+
+class SurveyResponse(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    survey_assigned = models.ForeignKey(
+        SurveyAssignment,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='survey_responses'
+    )
+    question = models.ForeignKey(
+        Question, 
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='question_responses'
+    )
+    choice = models.ForeignKey(
+        Choice,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='choices_selected'
+    )
+
