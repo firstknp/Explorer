@@ -3,7 +3,7 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group, Permission
 from django.db import transaction
-
+from django.views.generic import TemplateView
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import View
 
@@ -12,26 +12,43 @@ from guardian.mixins import PermissionRequiredMixin
 from guardian.shortcuts import assign_perm, get_objects_for_user
 from .models import Survey, Question, Choice, SurveyAssignment, SurveyResponse
 
-class ProfileView(LoginRequiredMixin, View):
+class HomePageView(TemplateView):
+    template_name = 'survey/home.html'
+
+class SurveyView(LoginRequiredMixin, View):
     def get(self, request):
         surveys = Survey.objects.filter(created_by=request.user).all()
-        assigned_surveys = SurveyAssignment.objects.filter(
-            assigned_to=request.user).all()
-        survey_results = get_objects_for_user(
-            request.user, 'can_view_results', klass=Survey)
+        assigned_surveys = SurveyAssignment.objects.filter(assigned_to=request.user).all()
+        survey_results = get_objects_for_user(request.user, 'can_view_results', klass=Survey)
+
+        context = {
+            'surveys': surveys,
+            'survey_results': survey_results
+        }
+
+        return render(request, 'survey/survey.html', context)
+
+
+class SurveyVote(LoginRequiredMixin, View):
+    def get(self, request):
+        surveys = Survey.objects.filter(created_by=request.user).all()
+        assigned_surveys = SurveyAssignment.objects.filter(assigned_to=request.user).all()
+        survey_results = get_objects_for_user(request.user, 'can_view_results', klass=Survey)
 
         context = {
             'surveys': surveys,
             'assgined_surveys': assigned_surveys,
-            'survey_results': survey_results
+            
         }
+        return render(request, 'survey/survey_vote.html', context)
 
-        return render(request, 'profile.html', context)
+
+
 
 class SurveyCreateView(LoginRequiredMixin, View):
     def get(self, request):
         users = User.objects.all()
-        return render(request, 'create_survey.html', {'users': users})
+        return render(request, 'survey/create_survey.html', {'users': users})
 
     def post(self, request):
         data = request.POST
@@ -55,7 +72,7 @@ class SurveyCreateView(LoginRequiredMixin, View):
 
         if not valid:
             context['users'] = User.objects.all()
-            return render(request, 'create_survey.html', context)
+            return render(request, 'survey/create_survey.html', context)
 
         survey = Survey.objects.create(title=title, created_by=request.user)
         for question_json in questions_json:
@@ -76,7 +93,7 @@ class SurveyCreateView(LoginRequiredMixin, View):
             )
             assign_perm(perm, assigned_to, assigned_survey)
             
-        return redirect(reverse('login:home'))
+        return redirect(reverse('survey'))
 
 class SurveyAssignmentView(PermissionRequiredMixin, View):
     permission_required = 'survey.view_surveyassignment'
@@ -87,7 +104,7 @@ class SurveyAssignmentView(PermissionRequiredMixin, View):
         return self.obj
 
     def get(self, request, assignment_id):
-        return render(request, 'survey_assignment.html', {'survey_assignment': self.obj})
+        return render(request, 'survey/survey_assignment.html', {'survey_assignment': self.obj})
 
     def post(self, request, assignment_id):
         context = {'validation_error': ''}
@@ -115,7 +132,7 @@ class SurveyAssignmentView(PermissionRequiredMixin, View):
         except:
             transaction.savepoint_rollback(save_id)
 
-        return redirect(reverse('profile'))
+        return redirect(reverse('home'))
 
 class QuestionViewModel:
     def __init__(self, text):
@@ -163,4 +180,4 @@ class SurveyResultsView(View):
 
         context = {'survey': survey, 'questions': questions}
 
-        return render(request, 'survey_results.html', context)
+        return render(request, 'survey/survey_results.html', context)

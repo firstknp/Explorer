@@ -1,3 +1,5 @@
+{% extends 'survey/base.html' %}
+
 {% load static %}
 
 {% block content %}
@@ -25,7 +27,7 @@
             </div>
             <p class="help is-danger">{{ title_error }}</p>
           </div>
-          
+
           <div class="field">
             <label for="" class="label">Assignees</label>
             <div class="control">
@@ -117,4 +119,5 @@
 
 </section>
 
+<script src="{% static 'js/create_survey.js'%}"></script>
 {% endblock %}

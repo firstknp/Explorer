@@ -10,17 +10,14 @@ from django.contrib.auth.decorators import login_required
 
 
 
-class HomePageView(TemplateView):
-    template_name = 'home.html'
 
 class ProfileView(TemplateView):
-    template_name = 'profile.html'
+    template_name = 'login/profile.html'
 
 class PollsView(TemplateView):
-    template_name = 'polls.html'
+    template_name = 'login/polls.html'
 
-def index(request):
-    return render(request, 'login/index.html')
+
 
 
 @login_required
@@ -31,7 +28,7 @@ def special(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return redirect(reverse('login:user_login'))
+    return redirect(reverse('login'))
 
 def user_login(request):
     if request.method == 'POST':
@@ -44,19 +41,19 @@ def user_login(request):
                 if request.user.is_superuser:
                     return redirect("admin:index")
                 else:
-                    return render(request, "home.html", {})
+                    return render(request, "survey/home.html", {})
             else:
                 return HttpResponse("Your account was inactive.")
         else:
             print("Failed to login.")
             return HttpResponse("Invalid login details given")
     else:
-        return render(request, "loginpage.html", {})
+        return render(request, "login/loginpage.html", {})
 
 
 
 def register(request):
-    template = 'loginpage.html'
+    template = 'login/loginpage.html'
     
     if request.method == 'POST':
         form = RegisterForm(request.POST)
