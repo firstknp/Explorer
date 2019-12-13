@@ -1,6 +1,6 @@
 import json
 from django.conf import settings
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User, Group, Permission
 from django.db import transaction
 
@@ -9,12 +9,24 @@ from django.views import View
 
 from guardian.conf import settings as guardian_settings
 from guardian.mixins import PermissionRequiredMixin
-from guardian.shortcuts import assign_perm
+from guardian.shortcuts import assign_perm, get_objects_for_user
+from .models import Survey, Question, Choice, SurveyAssignment, SurveyResponse
 
+class ProfileView(LoginRequiredMixin, View):
+    def get(self, request):
+        surveys = Survey.objects.filter(created_by=request.user).all()
+        assigned_surveys = SurveyAssignment.objects.filter(
+            assigned_to=request.user).all()
+        survey_results = get_objects_for_user(
+            request.user, 'can_view_results', klass=Survey)
 
-from .models import Survey, Question, Choice, SurveyAssignment
+        context = {
+            'surveys': surveys,
+            'assgined_surveys': assigned_surveys,
+            'survey_results': survey_results
+        }
 
-
+        return render(request, 'profile.html', context)
 
 class SurveyCreateView(LoginRequiredMixin, View):
     def get(self, request):
@@ -75,7 +87,7 @@ class SurveyAssignmentView(PermissionRequiredMixin, View):
         return self.obj
 
     def get(self, request, assignment_id):
-        return render(request, 'survey/survey_assignment.html', {'survey_assignment': self.obj})
+        return render(request, 'survey_assignment.html', {'survey_assignment': self.obj})
 
     def post(self, request, assignment_id):
         context = {'validation_error': ''}
@@ -121,3 +133,34 @@ class ChoiceResultViewModel:
         self.id = id
         self.text = text
         self.responses = responses
+
+
+class SurveyResultsView(View):
+    def get_object(self):
+        obj = get_object_or_404(Survey, pk=self.kwargs['survey_id'])
+        return obj
+
+    def get(self, request, survey_id):
+        survey = self.get_object()
+        questions = []
+
+        for question in survey.questions.all():
+            question_vm = QuestionViewModel(question.text)
+            for choice in question.choices.all():
+                question_vm.choices.append(
+                    ChoiceResultViewModel(choice.id, choice.text))
+
+            for survey_response in SurveyResponse.objects.filter(question=question):
+                question_vm.add_survey_response(survey_response)
+
+            questions.append(question_vm)
+
+        for question in questions:
+            print(question.text)
+            for choice in question.choices:
+                print(choice.text, choice.responses)
+            print()
+
+        context = {'survey': survey, 'questions': questions}
+
+        return render(request, 'survey_results.html', context)
