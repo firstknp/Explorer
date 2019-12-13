@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from decouple import config
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,10 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')i^zj6nz4@##2083lu_akk036m^@x-9#7gor2bg!r)yw$s%=gy'
+SECRET_KEY = config('SECRET_KEY', default='secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -67,7 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends', 
+                'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
         },
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = config('TIME_ZONE', default='secret')
 
 USE_I18N = True
 
@@ -134,7 +136,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'template').replace('\\','/'),
+    os.path.join(os.path.dirname(__file__), 'template').replace('\\', '/'),
 )
 
 
@@ -142,9 +144,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/home/'
 
 # Google+
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '763114358978-ff6qtok73qoooi9sl0f92jkg23uauhmt'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'vyRsNE5C1Sku4jcyYgi6X5rZ'
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+SOCIAL_AUTH_POSTGRES_JSONFIELD = config('SOCIAL_AUTH_POSTGRES_JSONFIELD',default=False, cast=bool)
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default='secret')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
 
-
-APPEND_SLASH=False
+APPEND_SLASH = False
