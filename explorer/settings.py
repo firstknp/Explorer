@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'social_django',
+    'survey',
+    'guardian',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +78,7 @@ WSGI_APPLICATION = 'explorer.wsgi.application'
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
 )
 
 
@@ -135,8 +138,8 @@ TEMPLATE_DIRS = (
 )
 
 
-LOGIN_URL = '/login/user_login/'
-LOGIN_REDIRECT_URL = '/home'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/home/'
 
 # Google+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '763114358978-ff6qtok73qoooi9sl0f92jkg23uauhmt'
