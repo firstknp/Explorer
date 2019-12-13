@@ -6,20 +6,24 @@ from django.db import transaction
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views import View
-
+from django.http import HttpResponse
 from guardian.conf import settings as guardian_settings
 from guardian.mixins import PermissionRequiredMixin
 from guardian.shortcuts import assign_perm, get_objects_for_user
 from .models import Survey, Question, Choice, SurveyAssignment, SurveyResponse
 
+
 class HomePageView(TemplateView):
     template_name = 'survey/home.html'
+
 
 class SurveyView(LoginRequiredMixin, View):
     def get(self, request):
         surveys = Survey.objects.filter(created_by=request.user).all()
-        assigned_surveys = SurveyAssignment.objects.filter(assigned_to=request.user).all()
-        survey_results = get_objects_for_user(request.user, 'can_view_results', klass=Survey)
+        assigned_surveys = SurveyAssignment.objects.filter(
+            assigned_to=request.user).all()
+        survey_results = get_objects_for_user(
+            request.user, 'can_view_results', klass=Survey)
 
         context = {
             'surveys': surveys,
@@ -32,17 +36,17 @@ class SurveyView(LoginRequiredMixin, View):
 class SurveyVote(LoginRequiredMixin, View):
     def get(self, request):
         surveys = Survey.objects.filter(created_by=request.user).all()
-        assigned_surveys = SurveyAssignment.objects.filter(assigned_to=request.user).all()
-        survey_results = get_objects_for_user(request.user, 'can_view_results', klass=Survey)
+        assigned_surveys = SurveyAssignment.objects.filter(
+            assigned_to=request.user).all()
+        survey_results = get_objects_for_user(
+            request.user, 'can_view_results', klass=Survey)
 
         context = {
             'surveys': surveys,
             'assgined_surveys': assigned_surveys,
-            
+
         }
         return render(request, 'survey/survey_vote.html', context)
-
-
 
 
 class SurveyCreateView(LoginRequiredMixin, View):
@@ -92,8 +96,9 @@ class SurveyCreateView(LoginRequiredMixin, View):
                 assigned_to=assigned_to
             )
             assign_perm(perm, assigned_to, assigned_survey)
-            
+
         return redirect(reverse('survey'))
+
 
 class SurveyAssignmentView(PermissionRequiredMixin, View):
     permission_required = 'survey.view_surveyassignment'
@@ -134,10 +139,12 @@ class SurveyAssignmentView(PermissionRequiredMixin, View):
 
         return redirect(reverse('home'))
 
+
 class QuestionViewModel:
     def __init__(self, text):
         self.text = text
         self.choices = []
+
     def add_survey_response(self, survey_response):
         for choice in self.choices:
             if choice.id == survey_response.choice.id:
@@ -181,3 +188,13 @@ class SurveyResultsView(View):
         context = {'survey': survey, 'questions': questions}
 
         return render(request, 'survey/survey_results.html', context)
+
+
+def remove_survey(request, survey_id):
+    try:
+        survey = Survey.objects.get(id=survey_id)
+        survey.delete()
+
+        return redirect(reverse('survey'))
+    except:
+        return HttpResponse('error', status=500)
