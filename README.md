@@ -1,3 +1,5 @@
+(https://travis-ci.com/firstknp/Explorer.svg?branch=master)](https://travis-ci.com/firstknp/Explorer)
+
 # Explorer
 
 ![alt text](https://i.postimg.cc/JzpcXKtn/logo.png "application logo")
