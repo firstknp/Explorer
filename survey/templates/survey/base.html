@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" href="{% static 'vendor/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/menubar.css' %}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="{% static 'js/home.js' %}"></script>
         <script src="https://kit.fontawesome.com/e503b97c7e.js" crossorigin="anonymous"></script>
@@ -19,7 +20,7 @@
         <div class="overlay-content">
             <a href="{% url 'home' %}"><i class="fa fa-home fa-lg"></i><br/>Home</a>
             <br>
-            <a href="{% url 'survey' %}"><i class="fas fa-user-circle fa-lg"></i><br/>Create and Results</a>
+            <a href="{% url 'survey' %}"><i class="fas fa-plus-circle fa-lg"></i><br/>Create and Results</a>
             <br>
             <a href="{% url 'survey_vote' %}"><i class="fas fa-poll fa-lg"></i><br/>Vote</a> 
             <br>
