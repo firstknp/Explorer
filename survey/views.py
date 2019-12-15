@@ -11,6 +11,7 @@ from guardian.conf import settings as guardian_settings
 from guardian.mixins import PermissionRequiredMixin
 from guardian.shortcuts import assign_perm, get_objects_for_user
 from .models import Survey, Question, Choice, SurveyAssignment, SurveyResponse
+from django.contrib.auth import logout
 
 
 class HomePageView(TemplateView):
@@ -198,3 +199,8 @@ def remove_survey(request, survey_id):
         return redirect(reverse('survey'))
     except:
         return HttpResponse('error', status=500)
+
+
+def user_logout(request):
+    logout(request)
+    return render(request, 'login/loginpage.html')
