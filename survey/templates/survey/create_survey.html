@@ -5,28 +5,20 @@
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <section class="section">
-  <div class="container">
-    <h1 class="title has-text-centered">
-      Django Survey
-    </h1>
+  <div class="container2">
+    <h1>Create Survey</h1>
+  </div>
 
-    <div class="columns">
-      <div class="column is-offset-2 is-8">
-        <h2 class="subtitle">
-          Create Survey
-        </h2>
-
-        <form action="{% url 'survey_create' %}" id="survey-form" method="POST">
-          {% csrf_token %}
-          <div class="field">
-            <label for="title" class="label">
-              Title
-            </label>
-            <div class="control">
-              <input type="text" class="input" name="title" id="title">
-            </div>
-            <p class="help is-danger">{{ title_error }}</p>
-          </div>
+  <div class="content2">
+  <form action="{% url 'survey_create' %}" id="survey-form" method="POST">
+  {% csrf_token %}
+  <div class="field">
+    <label for="title" class="label">Title</label>
+    <div class="control">
+      <input type="text" class="input" name="title" id="title">
+    </div>
+    <p class="help is-danger">{{ title_error }}</p>
+  </div>
 
           <div class="field">
             <label for="" class="label">Assignees</label>
@@ -108,12 +100,13 @@
           </ol>
           <div class="field">
             <div class="control">
-              <button class="button is-success">Submit</button>
+              <button class="button-submit">Submit</button>
             </div>
           </div>
         </form>
       </div>
     </div>
+  </div>
 
   </div>
 
