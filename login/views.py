@@ -25,10 +25,10 @@ def special(request):
     return HttpResponse("You are logged in!")
 
 
-@login_required
-def user_logout(request):
-    logout(request)
-    return redirect(reverse('login'))
+# @login_required
+# def user_logout(request):
+#     logout(request)
+#     return redirect(reverse('login'))
 
 def user_login(request):
     if request.method == 'POST':
