@@ -1,32 +1,20 @@
 {% extends 'survey/base.html' %}
 
 {% block content %}
-<div class="container">
-  <h1 class="title has-text-centered">
-    Django Survey
-  </h1>
-  <div class="columns">
-      <h2 class="subtitle is-size-3">
-        Welcome {{ request.user.username }}
-      </h2>
-      {% if request.user.is_authenticated %}
-      <div class="navbar-start">
-        <a class="button is-info" href="{% url 'survey_create' %}">
-          Create Survey
-        </a>
-      </div>
-      {% endif %}
 
-      <h3 class="subtitle">Surveys You've Created</h3>
-      <div class="content">
-        <ul>
-          {% for survey in surveys %}
-          <li><a href="{% url 'survey_results' survey.id %}">{{ survey.title }}</a></li>
-          <a href="{% url 'survey-remove' survey.id %}" class="button is-success is-small">X</a>
-          {% endfor %}
-        </ul>
-      </div>
+  {% if request.user.is_authenticated %}
+  <div class="navbar-start">
+    click >> <a class="button is-info" href="{% url 'survey_create' %}"><font color="black">Create Survey</font></a>
   </div>
-</div>
+  {% endif %}
+  <h3 class="subtitle">Surveys You've Created</h3>
+    <div class="content">
+      {% for survey in surveys %}
+      <li><a href="{% url 'survey_results' survey.id %}" style="text-decoration: none;">{{ survey.title }}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times"></i></a></li>
+      <a href="{% url 'survey-remove' survey.id %}" class="button is-success is-small"><i class="fas fa-times"></i></a>
+      {% endfor %}
+    </div>
+  
+ 
 {% endblock %}
       
