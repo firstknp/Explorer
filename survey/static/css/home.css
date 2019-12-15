@@ -19,6 +19,7 @@ body {
   background-color: rgba(0,0,0, 0.9);
   overflow-x: hidden;
   transition: 0.5s;
+  opacity: 0.6;
 }
 
 .overlay-content {
@@ -32,7 +33,7 @@ body {
   padding: 8px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.5s;
 }
@@ -47,6 +48,58 @@ body {
   right: 45px;
   font-size: 60px;
 }
+
+.welcome-text {
+  text-align: center;
+  font-size: 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: italic;
+  padding: 230px;
+}
+
+.homebutton {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #AAAAAA;
+  border: none;
+  color: white;
+  font-family: Georgia, serif;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.homebutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.homebutton span:after {
+  content: '👇🏻';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.homebutton:hover span {
+  padding-right: 25px;
+  color: white;
+}
+
+.homebutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
 
 @media screen and (max-height: 450px) {
   .overlay {padding-top: 15px;}
