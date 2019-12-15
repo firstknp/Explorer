@@ -1,0 +1,23 @@
+.navbar-start {
+    /* position: absolute; */
+    text-align: center;
+    font-size: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 30px;
+}
+
+.content {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 40%;
+    left: 35%;
+    padding: 60px;
+    padding-top: 20px;
+    background-color: white;
+    opacity: 0.6;
+}
