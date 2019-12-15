@@ -4,15 +4,17 @@
 
   {% if request.user.is_authenticated %}
   <div class="navbar-start">
-    click >> <a class="button is-info" href="{% url 'survey_create' %}"><font color="black">Create Survey</font></a>
+    <a class="button is-info" href="{% url 'survey_create' %}"><font color="black">👉🏻 Create Survey 👈🏻</font></a>
   </div>
   {% endif %}
   <h3 class="subtitle">Surveys You've Created</h3>
     <div class="content">
+      <ul style="font-size: 20px;">
       {% for survey in surveys %}
-      <li><a href="{% url 'survey_results' survey.id %}" style="text-decoration: none;">{{ survey.title }}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times"></i></a></li>
-      <a href="{% url 'survey-remove' survey.id %}" class="button is-success is-small"><i class="fas fa-times"></i></a>
+      <li><a href="{% url 'survey_results' survey.id %}" style="text-decoration: none;"><font color="black">{{ survey.title }}</font></a></li>
+      <a href="{% url 'survey-remove' survey.id %}"><font color="#DD0000" style="font-size: 15px;"><i class="fas fa-times"></i>&nbsp;&nbsp;delete</font></a>
       {% endfor %}
+      </ul>
     </div>
   
  
