@@ -10,9 +10,11 @@
   <h3 class="subtitle">Surveys You've Created</h3>
     <div class="content">
       {% for survey in surveys %}
+      <ul>
       <li><a href="{% url 'survey_results' survey.id %}" style="text-decoration: none;">{{ survey.title }}&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-times"></i></a></li>
-      <a href="{% url 'survey-remove' survey.id %}" class="button is-success is-small"><i class="fas fa-times"></i></a>
+      <a href="{% url 'survey-remove' survey.id %}"><i class="fas fa-times"></i></a>
       {% endfor %}
+      </ul>
     </div>
   
  
