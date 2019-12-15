@@ -12,4 +12,4 @@
     
  # script to run tests. Script can have many commands, one per line.
  script: 
-   - python -m unittest discover -p "*_test.py"
+   - coverage run manage.py test survey/tests
