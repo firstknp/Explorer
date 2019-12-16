@@ -1,5 +1,7 @@
 .servey-title {
+    font-weight: bold;
     padding-top: 20px;
+    
 }
 
 .button-submit2 {
@@ -16,3 +18,5 @@
     cursor: pointer;
     margin: 5px;
 }
+
+

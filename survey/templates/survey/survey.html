@@ -7,8 +7,9 @@
     <a class="button is-info" href="{% url 'survey_create' %}"><font color="black">👉🏻 Create Survey 👈🏻</font></a>
   </div>
   {% endif %}
-  <h3 class="subtitle">Surveys You've Created</h3>
+  <!-- <h3 class="subtitle">Surveys You've Created</h3> -->
     <div class="content">
+        <h3 class="subtitle">Surveys You've Created</h3>
       <ul style="font-size: 20px;">
       {% for survey in surveys %}
       <li><a href="{% url 'survey_results' survey.id %}" style="text-decoration: none;"><font color="black">{{ survey.title }}</font></a></li>

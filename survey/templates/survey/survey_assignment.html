@@ -5,10 +5,10 @@
   <div class="container2">
   
 
-    <div class="content2">
+    <div class="content">
       <div class="column is-offset-2 is-8">
         <h2 class="survey_title">Survey: {{ survey_assignment.survey.title }}</h2>
-        <br>
+        
         {% if validation_error %}
           <p>{{ validation_error }}</p>
         {% endif %}
@@ -16,7 +16,7 @@
           {% csrf_token %}
           <ol>
             {% for question in survey_assignment.survey.questions.all %}
-            <li style="margin-bottom: 20px;">
+            <li style="margin-left: 20px;">
               {{ question.text }}
               
               {% for choice in question.choices.all %}

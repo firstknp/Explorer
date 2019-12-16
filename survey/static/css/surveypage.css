@@ -1,24 +1,22 @@
 .navbar-start {
-    /* position: absolute; */
     text-align: center;
     font-size: 30px;
 }
 
 .subtitle {
     text-align: center;
-    margin-top: 150px;
     font-size: 30px;
 }
 
 .content {
     position: absolute;
-    width: 400px;
-    height: 400px;
-    top: 40%;
-    left: 35%;
-    padding: 60px;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    top: 20%;
+    left: 33%;
+    padding: 30px;
     padding-top: 20px;
     background-color: white;
-    opacity: 0.6;
     overflow: scroll;
 }
