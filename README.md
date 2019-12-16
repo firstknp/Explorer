@@ -74,6 +74,12 @@ p.s. default port is 8000
 python manage.py runserver
 ```
 
+### Visit our website
+
+```
+https://explorer-surveyingapp.herokuapp.com
+```
+
 ### Links
 
 - [Project Proposal](https://docs.google.com/document/d/1qdqPf4JQ3rBSxZci-LwQIHDVbLrIxI9a3JVkKBKnihQ/edit#heading=h.vkq3s4w01uy9)
