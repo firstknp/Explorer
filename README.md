@@ -76,8 +76,9 @@ python manage.py runserver
 
 ### Visit our website
 
-[click](https://explorer-surveyingapp.herokuapp.com)
-
+```
+https://explorer-surveyingapp.herokuapp.com
+```
 
 ### Links
 
