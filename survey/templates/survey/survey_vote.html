@@ -7,7 +7,7 @@
           <ul style="font-size: 20px;">
             {% for assigned_survey in assgined_surveys %}
             <li>
-              <a href="{% url 'survey_assignment' assigned_survey.id %}">{{ assigned_survey.survey.title }}</a>
+              <a href="{% url 'survey_assignment' assigned_survey.id %}" style="text-decoration: none;"><font color="black">{{ assigned_survey.survey.title }}</font></a>
             </li>
             {% endfor %}
           </ul>

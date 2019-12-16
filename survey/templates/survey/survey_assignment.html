@@ -8,7 +8,7 @@
     <div class="content">
       <div class="column is-offset-2 is-8">
         <h2 class="survey_title">Survey: {{ survey_assignment.survey.title }}</h2>
-        
+        <ul style="font-size: 20px;">
         {% if validation_error %}
           <p>{{ validation_error }}</p>
         {% endif %}
@@ -37,6 +37,7 @@
               <button class="button-submit2">Submit</button>
             </div>
           </div>
+        </ul>
           {% else %}
           <p>You've already completed this survey</p>
           {% endif %}
