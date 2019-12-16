@@ -157,3 +157,6 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY', default=
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET', default='secret')
 
 APPEND_SLASH = False
+
+import django_heroku
+django_heroku.settings(locals())
