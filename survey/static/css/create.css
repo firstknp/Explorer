@@ -32,6 +32,7 @@ input[type=text]{
     overflow: scroll;
     font-size: 18px;
     color: black;
+    border-radius: 10px;
 }
 
     
