@@ -2,9 +2,9 @@
 
 {% block content %}
 <div class="container">
-<h3 class="subtitle">Surveys You've Been Assigned</h3>
         <div class="content">
-          <ul>
+          <h3 class="subtitle">Surveys You've Been Assigned</h3>
+          <ul style="font-size: 20px;">
             {% for assigned_survey in assgined_surveys %}
             <li>
               <a href="{% url 'survey_assignment' assigned_survey.id %}">{{ assigned_survey.survey.title }}</a>

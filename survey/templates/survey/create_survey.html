@@ -4,15 +4,17 @@
 
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+
 <section class="section">
-  <div class="container2">
+  <div class="container3">
     <h1>Create Survey</h1>
   </div>
 
   <div class="content2">
   <form action="{% url 'survey_create' %}" id="survey-form" method="POST">
+
   {% csrf_token %}
-  <div class="field">
+  <div class="field1">
     <label for="title" class="label">Title</label>
     <div class="control">
       <input type="text" class="input" name="title" id="title">
@@ -34,7 +36,7 @@
             </div>
           </div>
 
-          <div class="field">
+          <div class="field1">
             <label for="" class="label">Questions</label>
             <div class="control">
               <a @click.stop="addQuestion" class="button is-info is-small">
@@ -48,7 +50,7 @@
           </div>
           <ol>
             <li style="padding-bottom: 25px;" v-for="question in questions" :key="'question_' + question.id">
-              <div class="field is-grouped">
+              <div class="field1">
                 <label :for="'question_' + question.id" class="label">
                 </label>
                 <div class="control is-expanded">
@@ -57,13 +59,13 @@
                 <div class="control">
                   <a @click.stop="removeQuestion(question)" class="button is-danger">
                     <span class="icon is-small">
-                      <i class="fas fa-times"></i>
+                      <i class="fas fa-times"> delete</i>
                     </span>
                   </a>
                 </div>
               </div>
               <div style="margin-left: 30px;">
-                <div class="field">
+                <div class="field1">
                   <label for="" class="label">Choices</label>
                   <div class="control">
                     <a @click.stop="addChoice(question)" class="button is-success is-small">
@@ -77,7 +79,7 @@
 
                 <ol>
                   <li v-for="choice in question.choices" :key="'choice_' + choice.id">
-                    <div class="field is-grouped">
+                    <div class="field1">
                       <label :for="'choice_' + choice.id" class="label">
                       </label>
                       <div class="control is-expanded">
@@ -86,7 +88,7 @@
                       <div class="control">
                         <a @click.stop="removeChoice(question, choice)" class="button is-danger">
                           <span class="icon is-small">
-                            <i class="fas fa-times"></i>
+                            <i class="fas fa-times"> delete</i>
                           </span>
                         </a>
                       </div>
